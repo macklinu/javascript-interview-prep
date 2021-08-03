@@ -13,7 +13,9 @@ export class Stack<T> {
   }
 
   pop(): T | undefined {
-    if (this.length === 0) return void 0
+    if (this.length === 0) {
+      return undefined
+    }
     return this.list.pop()
   }
 
