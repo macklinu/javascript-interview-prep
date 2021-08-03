@@ -12,7 +12,7 @@ export function canBePalindrome(string: string): boolean {
 type CharacterCountMap = Record<string, number>
 
 function countCharacters(string: string): CharacterCountMap {
-  let counts = {}
+  let counts: CharacterCountMap = {}
   ;[...string].forEach((character) => {
     if (typeof counts[character] === 'undefined') {
       counts[character] = 0

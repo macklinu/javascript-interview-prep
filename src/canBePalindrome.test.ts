@@ -1,7 +1,9 @@
 import { canBePalindrome } from './canBePalindrome'
 
 test('all', () => {
+  // @ts-expect-error
   expect(canBePalindrome(void 0)).toBe(false)
+
   expect(canBePalindrome('')).toBe(false)
   expect(canBePalindrome('ab')).toBe(false)
   expect(canBePalindrome('baa')).toBe(true)
