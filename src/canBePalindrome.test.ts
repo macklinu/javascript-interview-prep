@@ -1,12 +1,18 @@
 import { canBePalindrome } from './canBePalindrome'
 
-test('all', () => {
-  // @ts-expect-error
-  expect(canBePalindrome(void 0)).toBe(false)
+interface TestCase {
+  string: string
+  expected: boolean
+}
 
-  expect(canBePalindrome('')).toBe(false)
-  expect(canBePalindrome('ab')).toBe(false)
-  expect(canBePalindrome('baa')).toBe(true)
-  expect(canBePalindrome('carrace')).toBe(true)
-  expect(canBePalindrome('racecar')).toBe(true)
+test.each<TestCase>([
+  // @ts-expect-error
+  { string: undefined, expected: false } as TestCase,
+  { string: '', expected: false },
+  { string: 'ab', expected: false },
+  { string: 'baa', expected: true },
+  { string: 'carrace', expected: true },
+  { string: 'racecar', expected: true },
+])('canBePalindrome($string) === $expected', ({ string, expected }) => {
+  expect(canBePalindrome(string)).toBe(expected)
 })

@@ -1,7 +1,17 @@
 import { firstUniqueCharacterInString } from '.'
 
-test('solves LeetCode test cases', () => {
-  expect(firstUniqueCharacterInString('leetcode')).toBe(0)
-  expect(firstUniqueCharacterInString('loveleetcode')).toBe(2)
-  expect(firstUniqueCharacterInString('aabb')).toBe(-1)
-})
+interface TestCase {
+  string: string
+  expected: number
+}
+
+test.each<TestCase>([
+  { string: 'leetcode', expected: 0 },
+  { string: 'loveleetcode', expected: 2 },
+  { string: 'aabb', expected: -1 },
+])(
+  'firstUniqueCharacterInString($string) === $expected',
+  ({ string, expected }) => {
+    expect(firstUniqueCharacterInString(string)).toBe(expected)
+  }
+)
