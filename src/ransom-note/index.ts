@@ -1,6 +1,6 @@
-export function checkMagazine(magazine: string, note: string): boolean {
-  let magazineCount = count(magazine.split(' '))
-  let noteCount = count(note.split(' '))
+export function checkMagazine(magazine: string[], note: string[]): boolean {
+  let magazineCount = count(magazine)
+  let noteCount = count(note)
   return Object.entries(noteCount).every(([noteKey, noteValue]) => {
     let magazineValue = magazineCount[noteKey] ?? 0
     return magazineValue >= noteValue
