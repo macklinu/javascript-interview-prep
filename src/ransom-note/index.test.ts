@@ -1,12 +1,6 @@
-import { checkMagazine } from '.'
+import {checkMagazine} from '.'
 
-interface TestCase {
-  magazine: string[]
-  note: string[]
-  expected: boolean
-}
-
-test.each<TestCase>([
+test.each([
   {
     magazine: toWordArray('give me one grand today night'),
     note: toWordArray('give one grand today'),
@@ -24,7 +18,7 @@ test.each<TestCase>([
   },
 ])(
   'checkMagazine($magazine, $note) === $expected',
-  ({ magazine, note, expected }) => {
+  ({magazine, note, expected}) => {
     expect(checkMagazine(magazine, note)).toEqual(expected)
   }
 )

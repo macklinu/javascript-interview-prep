@@ -1,13 +1,8 @@
-import { hourglassSum } from '.'
+import {hourglassSum} from '.'
 
-interface TestCase {
-  input: number[][]
-  sum: number
-}
-
-test.each<TestCase>([
+test.each([
   {
-    input: to2DArray(`
+    input: to2dArray(`
     -9 -9 -9  1 1 1
     0 -9  0  4 3 2
    -9 -9 -9  1 2 3
@@ -17,7 +12,7 @@ test.each<TestCase>([
     sum: 28,
   },
   {
-    input: to2DArray(`
+    input: to2dArray(`
     1 1 1 0 0 0
     0 1 0 0 0 0
     1 1 1 0 0 0
@@ -27,7 +22,7 @@ test.each<TestCase>([
     sum: 19,
   },
   {
-    input: to2DArray(`
+    input: to2dArray(`
     -1 -1 0 -9 -2 -2
     -2 -1 -6 -8 -2 -5
     -1 -1 -1 -2 -3 -4
@@ -36,11 +31,11 @@ test.each<TestCase>([
     -1 -3 -1 -2 -4 -5`),
     sum: -6,
   },
-])('hourglassSum($input) === $sum', ({ input, sum }) => {
+])('hourglassSum($input) === $sum', ({input, sum}) => {
   expect(hourglassSum(input)).toEqual(sum)
 })
 
-function to2DArray(input: string): number[][] {
+function to2dArray(input: string): number[][] {
   return input
     .split('\n')
     .map((string) => string.split(/\s+/).filter(Boolean).map(Number))

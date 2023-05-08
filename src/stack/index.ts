@@ -1,5 +1,5 @@
 export class Stack<T> {
-  private list: T[]
+  private readonly list: T[]
   constructor(initialEntries: T[] = []) {
     this.list = [...initialEntries]
   }
@@ -16,6 +16,7 @@ export class Stack<T> {
     if (this.length === 0) {
       return undefined
     }
+
     return this.list.pop()
   }
 

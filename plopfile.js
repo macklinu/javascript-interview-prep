@@ -1,7 +1,7 @@
 /**
  * @param {import('plop').NodePlopAPI} plop
  */
-module.exports = function (plop) {
+export default function plopConfig(plop) {
   plop.setGenerator('problem', {
     description: 'interview problem boilerplate',
     prompts: [

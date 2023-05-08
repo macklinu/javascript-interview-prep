@@ -1,21 +1,28 @@
-const symbolToValue: Record<string, number> = {
-  I: 1,
-  V: 5,
-  X: 10,
-  L: 50,
-  C: 100,
-  D: 500,
-  M: 1000,
-}
+const symbolToValue = new Map([
+  ['I', 1],
+  ['V', 5],
+  ['X', 10],
+  ['L', 50],
+  ['C', 100],
+  ['D', 500],
+  ['M', 1000],
+])
 
 export function romanToInteger(string: string): number {
-  let symbols = string.split('')
-  return symbols.reduceRight((total, symbol, index) => {
-    let value = symbolToValue[symbol]
-    let nextValue = symbolToValue[symbols[index + 1]]
+  const symbols = string.split('')
+
+  let total = 0
+
+  for (let i = symbols.length - 1; i >= 0; i--) {
+    const value = symbolToValue.get(symbols[i]) ?? 0
+    const nextValue = symbolToValue.get(symbols[i + 1]) ?? 0
+
     if (value < nextValue) {
-      return total - value
+      total -= value
+    } else {
+      total += value
     }
-    return total + value
-  }, 0)
+  }
+
+  return total
 }
