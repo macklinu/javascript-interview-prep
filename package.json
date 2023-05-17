@@ -10,7 +10,7 @@
   "devDependencies": {
     "plop": "^3.1.2",
     "typescript": "^5.0.4",
-    "vitest": "^0.31.0",
+    "vitest": "^0.31.1",
     "xo": "^0.54.2"
   },
   "xo": {
